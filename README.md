@@ -1,5 +1,5 @@
 # DBMS Online Ticket Booking System
-:http://127.0.0.1:5000/
+
 A full-stack web application for managing online ticket bookings built with Python Flask and MySQL.
 
 ## Features
