@@ -80,5 +80,5 @@ Troubleshooting
 If port 5000 is busy, change in app.py:
 if __name__ == '__main__':
     app.run(port=5001)  # Change to available port
-Then access at: http://localhost:5001
+Then access at: http://localhost:5001.
 
