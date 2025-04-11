@@ -1,84 +1,96 @@
-# DBMS Online Ticket Booking System
+# Online shopping Management sytsem
 
-A full-stack web application for managing online ticket bookings built with Python Flask and MySQL.
+## Project Overview
+ ![image](https://github.com/user-attachments/assets/2b61dc1a-c655-4913-b1df-7c4a2c18543c)
 
-## Features
-- Customer registration and management
-- Ticket booking functionality
+A Flask-based web application for managing an e-commerce platform with:
+- Customer management
+- Product catalog
+- Shopping cart functionality
 - Payment processing
-- Admin dashboard for managing bookings
-- Responsive web interface
+- Account management
 
 ## Technologies Used
-- Backend: Python Flask
-- Database: MySQL
-- Frontend: HTML, CSS, JavaScript
-- Templates: Jinja2
+- **Backend**: Python Flask
+- **Database**: Microsoft SQL Server (MSSQL)
+- **Frontend**: HTML templates
+- **Database Driver**: pyodbc
 
-## Quick Access
-- **Live Demo**: [http://localhost:5000](http://localhost:5000) (after starting server)
-- Admin Panel: [http://localhost:5000/admin](http://localhost:5000/admin)
-- Customer Login: [http://localhost:5000/login](http://localhost:5000/login)
+## Database Schema
+The system uses the following tables:
+- `CUSTOMER`: Stores customer information
+- `ACCOUNT`: Manages customer accounts and balances
+- `PRODUCTS`: Product catalog
+- `BRAND`: Product brands
+- `CATEGORY`: Product categories
+- `PAYMENT`: Payment records
+- `CART`: Shopping cart items
 
-## Setup Instructions
+## Key Features
+### Customer Management
+ ![image](https://github.com/user-attachments/assets/70a2c0c6-be81-4497-91f3-60fc4c62983a)
 
+- Add new customers
+- View all customers
+- Customer types (Convenience shoppers, Brand advocates, etc.)
+
+### Product Management
+![image](https://github.com/user-attachments/assets/754abab4-349b-4d60-a7f4-3b84ae0701af)
+
+ - Add new products
+- Categorize products
+- Brand management
+
+### Shopping Cart
+- View cart contents
+- Add items to cart
+- Calculate total amounts
+
+### Payment Processing
+ ![image](https://github.com/user-attachments/assets/ae212f85-c804-4b53-af17-8f4cdbd5f40e)
+
+- Record payments
+- Payment type tracking (online/offline)
+- Account balance updates
+
+## Installation & Setup
 1. **Prerequisites**:
    - Python 3.x
-   - MySQL Server
-   - pip package manager
+   - MSSQL Server
+   - ODBC Driver 17 for SQL Server
 
-2. **Installation**:
-   ```bash
-   git clone https://github.com/manish-g-p/DBMS_Online_Ticket_booking_system.git
-   cd DBMS_Online_Ticket_booking_system
-   pip install -r requirements.txt
-Database Setup:
+2. **Database Setup**:
+   - Run `SHOOping.sql` to create database schema and sample data
 
-Import SHOOping.sql to your MySQL server
-Configure database credentials in app.py
-Running the Application:
+3. **Application Setup**:
+   - Install requirements: `pip install flask pyodbc`
+   - Update connection string in `app.py` with your server details
+   - Run application: `python app.py`
 
-python app.py
-The application will start at: http://localhost:5000
 
-Accessing the Website
-After starting the application, access these endpoints:
+## Business Logic Highlights
+1. **Triggers**:
+   - Automatically updates account status when payments exceed $50
+   - Prevents payments that would result in negative balance
 
-Home Page: http://localhost:5000
-Customer Registration: http://localhost:5000/register
-Booking Page: http://localhost:5000/book
-Payment Page: http://localhost:5000/payment
-Admin Dashboard: http://localhost:5000/admin
-Project Structure
-.
-├── app.py             # Main application file
-├── SHOOping.sql       # Database schema
-├── templates/         # HTML templates
-│   ├── index.html
-│   ├── customer_form.html
-│   ├── payment_form.html
-│   ├── product_form.html
-│   ├── view_cart.html
-│   └── view_customers.html
-├── README.md          # This file
-└── requirements.txt   # Python dependencies
-Usage Guide
-For Customers:
+2. **Stored Procedures**:
+   - `ViewCart`: Retrieves cart items for a customer
+   - `GetAccountBalance`: Checks current account balance
+   - `AddToCart`: Adds items to cart with automatic total calculation
 
-Register at http://localhost:5000/register
-Browse tickets at http://localhost:5000
-Make bookings at http://localhost:5000/book
-For Admins:
+3. **Analytical Queries**:
+   - Average product quantities in carts
+   - Payment comparisons (above/below average)
+   - Product price analytics by category
 
-Access dashboard at http://localhost:5000/admin
-Manage tickets and customers
-Screenshots
-Home Page: Home
-Booking Page: Booking
-Admin Panel: Admin
-Troubleshooting
-If port 5000 is busy, change in app.py:
-if __name__ == '__main__':
-    app.run(port=5001)  # Change to available port
-Then access at: http://localhost:5001.
+## Usage Instructions
+1. Start the application: `python app.py`
+2. Access the web interface at `http://localhost:5000`
+3. Use the navigation to access different features
+
+## Future Enhancements
+- User authentication
+- Order history tracking
+- Product search functionality
+- Admin dashboard
 
