@@ -1,4 +1,4 @@
-MY Github link[https://github.com/manish-g-p/DBMS_Online_Ticket_booking_system]
+[MY Github link](https://github.com/manish-g-p/)
 # Online shopping Management sytsem
 ## Project Overview
  ![image](https://github.com/user-attachments/assets/2b61dc1a-c655-4913-b1df-7c4a2c18543c)
